@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "790699942234",
+    "project_id": "furns-grid-cb666",
+    "storage_bucket": "furns-grid-cb666.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:790699942234:android:ad49e98a7bdfcdd5bf1363",
+        "android_client_info": {
+          "package_name": "com.faizm55212.furns_grid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "790699942234-b261bn8vr2jss564nqbdqaagfe2rf1ja.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.faizm55212.furns_grid",
+            "certificate_hash": "2a0d9541f5a6602c54860d2098b65f667277ee54"
+          }
+        },
+        {
+          "client_id": "790699942234-g9gkpjth8q6cp91q5avdkhur5pmbrb8b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA67zdE8pl6zHVax__9gKRCgYMjQVRVIBM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "790699942234-g9gkpjth8q6cp91q5avdkhur5pmbrb8b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
