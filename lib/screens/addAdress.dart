@@ -92,7 +92,7 @@ class AddAddress extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 10.0, vertical: 5.0),
-                            child: RaisedButton(
+                            child: ElevatedButton(
                               elevation: 2.0,
                               onPressed: () {},
                               shape: RoundedRectangleBorder(

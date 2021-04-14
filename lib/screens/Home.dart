@@ -89,7 +89,7 @@ class _HomePageState extends State<HomePage> {
           Column(
             children: <Widget>[
               Stack(
-                overflow: Overflow.visible,
+                clipBehavior: Clip.none,
                 children: <Widget>[
                   stackContainer(),
                   stackCircle1(),
