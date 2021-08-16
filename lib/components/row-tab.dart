@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class RowTab extends StatefulWidget {
-  final int isSelectedTab;
-  final Function(int) tabPressed;
+  final int? isSelectedTab;
+  final Function(int)? tabPressed;
   const RowTab({this.isSelectedTab, this.tabPressed});
 
   @override
@@ -24,7 +24,7 @@ class _RowTabState extends State<RowTab> {
           xSvg: 'sofa.svg',
           xTitle: 'Sofas',
           onPressed: () {
-            widget.tabPressed(0);
+            widget.tabPressed!(0);
           },
         ),
         RowTabBtn(
@@ -32,7 +32,7 @@ class _RowTabState extends State<RowTab> {
           xSvg: 'closet.svg',
           xTitle: 'Wardrobe',
           onPressed: () {
-            widget.tabPressed(1);
+            widget.tabPressed!(1);
           },
         ),
         RowTabBtn(
@@ -40,7 +40,7 @@ class _RowTabState extends State<RowTab> {
           xSvg: 'desk.svg',
           xTitle: 'Desk',
           onPressed: () {
-            widget.tabPressed(2);
+            widget.tabPressed!(2);
           },
         ),
         RowTabBtn(
@@ -48,7 +48,7 @@ class _RowTabState extends State<RowTab> {
           xSvg: 'mirror.svg',
           xTitle: 'Dresser',
           onPressed: () {
-            widget.tabPressed(3);
+            widget.tabPressed!(3);
           },
         ),
       ],
@@ -57,17 +57,17 @@ class _RowTabState extends State<RowTab> {
 }
 
 class RowTabBtn extends StatelessWidget {
-  final String xTitle;
-  final String xSvg;
-  final bool isSelectedTab;
-  final Function onPressed;
+  final String? xTitle;
+  final String? xSvg;
+  final bool? isSelectedTab;
+  final Function? onPressed;
   const RowTabBtn({this.isSelectedTab, this.xSvg, this.xTitle, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     bool _selected = isSelectedTab ?? false;
     return GestureDetector(
-      onTap: _selected ? null : onPressed,
+      onTap: _selected ? null : onPressed as void Function()?,
       child: Material(
         elevation: _selected ? 5.0 : 0.0,
         color: Colors.white,
@@ -88,7 +88,7 @@ class RowTabBtn extends StatelessWidget {
               ),
               SizedBox(height: 2.0),
               Text(
-                xTitle,
+                xTitle!,
                 style: TextStyle(
                     fontFamily: 'Quicksand', fontWeight: FontWeight.w700),
               ),

@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:furns_grid/components/bottom-tabs.dart';
 import 'package:furns_grid/components/row-tab.dart';
@@ -228,6 +229,7 @@ class _HomePageState extends State<HomePage> {
                     // Collection Data ready to display
                     if (snapshot.connectionState == ConnectionState.done) {
                       // Display the data inside a list view
+
                       return Column(
                         children: snapshot.data.docs.map<Widget>((document) {
                           return ItemCard(

@@ -8,7 +8,7 @@ class FindPage extends StatefulWidget {
 }
 
 class _FindPageState extends State<FindPage> with TickerProviderStateMixin {
-  TabController rController;
+  TabController? rController;
   @override
   void initState() {
     super.initState();
@@ -18,7 +18,7 @@ class _FindPageState extends State<FindPage> with TickerProviderStateMixin {
 
   @override
   void dispose() {
-    rController.dispose();
+    rController!.dispose();
     super.dispose();
   }
 
@@ -170,12 +170,12 @@ class TabButtons extends StatelessWidget {
 }
 
 class FindCard extends StatelessWidget {
-  final String title;
-  final String subTime;
-  final IconData mIcon;
-  final String discp;
-  final int intViews;
-  final bool isFavorite;
+  final String? title;
+  final String? subTime;
+  final IconData? mIcon;
+  final String? discp;
+  final int? intViews;
+  final bool? isFavorite;
   const FindCard(
       {this.title,
       this.subTime,
@@ -221,12 +221,12 @@ class FindCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            title,
+                            title!,
                             style: TextStyle(
                                 fontSize: 20.0, fontWeight: FontWeight.w500),
                           ),
                           Text(
-                            subTime,
+                            subTime!,
                             style: TextStyle(
                                 fontSize: 13.0,
                                 fontWeight: FontWeight.w500,
@@ -238,7 +238,7 @@ class FindCard extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 15.0),
-                Text(discp),
+                Text(discp!),
                 SizedBox(height: 10.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -295,14 +295,14 @@ class FindCard extends StatelessWidget {
 
 class Fav extends StatefulWidget {
   Fav({this.isFavorite});
-  final bool isFavorite;
+  final bool? isFavorite;
 
   @override
   _FavState createState() => _FavState();
 }
 
 class _FavState extends State<Fav> {
-  bool isFav;
+  bool? isFav;
   @override
   void initState() {
     isFav = widget.isFavorite;
@@ -327,9 +327,9 @@ class _FavState extends State<Fav> {
             width: 25.0,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12.5),
-                color: isFav ? Colors.white : Colors.grey.withOpacity(0.2)),
+                color: isFav! ? Colors.white : Colors.grey.withOpacity(0.2)),
             child: Center(
-              child: isFav
+              child: isFav!
                   ? Icon(
                       Icons.favorite,
                       color: Colors.red,

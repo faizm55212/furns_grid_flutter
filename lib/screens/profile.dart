@@ -11,7 +11,7 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage>
     with SingleTickerProviderStateMixin {
-  TabController controller;
+  late TabController controller;
   @override
   void initState() {
     super.initState();
@@ -239,9 +239,9 @@ class _ProfilePageState extends State<ProfilePage>
 }
 
 class ListTile extends StatelessWidget {
-  final Color xcolor;
-  final String xtext;
-  final String xicon;
+  final Color? xcolor;
+  final String? xtext;
+  final String? xicon;
   final onTap;
   final icolor;
   const ListTile(
@@ -282,7 +282,7 @@ class ListTile extends StatelessWidget {
                     width: 15.0,
                   ),
                   Text(
-                    xtext,
+                    xtext!,
                     style: TextStyle(fontWeight: FontWeight.w500),
                   ),
                 ],
@@ -303,7 +303,7 @@ class OptionTile extends StatelessWidget {
   final String _decText;
   final String _itemCount;
   final String svgPath;
-  final Color color;
+  final Color? color;
   OptionTile(this._decText, this._itemCount, this.svgPath, this.color);
 
   @override

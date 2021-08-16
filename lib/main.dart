@@ -1,3 +1,5 @@
+// @dart=2.9
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +11,7 @@ import 'package:furns_grid/services/auth_services.dart';
 import 'screens/Home.dart';
 import 'package:provider/provider.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp());
@@ -25,15 +27,17 @@ class MyApp extends StatelessWidget {
           create: (_) => AuthenticationServices(FirebaseAuth.instance),
         ),
         StreamProvider(
-            create: (context) =>
-                context.read<AuthenticationServices>().authStateChanges),
+          initialData: 0,
+          create: (context) =>
+              context.read<AuthenticationServices>().authStateChanges,
+        ),
       ],
       child: MaterialApp(
         theme: ThemeData(accentColor: Color(0xFFFF1E00)),
         debugShowCheckedModeBanner: false,
         initialRoute: '/',
         routes: {
-          '/': (context) => AuthenticationWrapper(),
+          '/': (context) => AuthenticationCheck(),
           '/ProductPage': (context) => ProductPage(),
           '/Profile/addAddress': (context) => AddAddress(),
           '/Login/Signup': (context) => SignUp(),
@@ -43,15 +47,16 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class AuthenticationWrapper extends StatelessWidget {
-  const AuthenticationWrapper({Key key}) : super(key: key);
-
+class AuthenticationCheck extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final firebaseUser = context.watch<User>();
-    if (firebaseUser != null) {
-      return Home();
-    }
-    return LoginPage();
+    return StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (BuildContext context, snapshot) {
+          if (snapshot.hasData) {
+            return Home();
+          } else
+            return LoginPage();
+        });
   }
 }

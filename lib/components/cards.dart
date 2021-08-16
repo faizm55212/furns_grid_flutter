@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class ItemCard extends StatelessWidget {
-  final String title;
-  final String imgPath;
-  final String descp;
-  final bool isFavorite;
+  final String? title;
+  final String? imgPath;
+  final String? descp;
+  final bool? isFavorite;
 
   ItemCard({this.title, this.imgPath, this.descp, this.isFavorite});
   @override
@@ -48,7 +48,7 @@ class ItemCard extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.only(top: 15.0),
                             child: Text(
-                              title,
+                              title!,
                               style: TextStyle(
                                   fontFamily: 'Quicksand',
                                   fontSize: 17.0,
@@ -64,7 +64,7 @@ class ItemCard extends StatelessWidget {
                         // width: 175.0,
                         height: 49.0,
                         child: Text(
-                          descp,
+                          descp!,
                           textAlign: TextAlign.left,
                           style: TextStyle(
                               fontFamily: 'Quicksand',
@@ -131,14 +131,14 @@ class ItemCard extends StatelessWidget {
 
 class Fav extends StatefulWidget {
   Fav({this.isFavorite});
-  final bool isFavorite;
+  final bool? isFavorite;
 
   @override
   _FavState createState() => _FavState();
 }
 
 class _FavState extends State<Fav> {
-  bool isFav;
+  bool? isFav;
   @override
   void initState() {
     isFav = widget.isFavorite;
@@ -163,9 +163,9 @@ class _FavState extends State<Fav> {
             width: 30.0,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15.0),
-                color: isFav ? Colors.white : Colors.grey.withOpacity(0.2)),
+                color: isFav! ? Colors.white : Colors.grey.withOpacity(0.2)),
             child: Center(
-              child: isFav
+              child: isFav!
                   ? Icon(
                       Icons.favorite,
                       color: Colors.red,

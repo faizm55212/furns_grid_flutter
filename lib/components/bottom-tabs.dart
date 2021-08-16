@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'custom_icons_icons.dart';
 
 class BottomTabs extends StatefulWidget {
-  final int selectedTab;
-  final Function(int) tabPressed;
+  final int? selectedTab;
+  final Function(int)? tabPressed;
   BottomTabs({this.selectedTab, this.tabPressed});
   @override
   _BottomTabsState createState() => _BottomTabsState();
@@ -36,28 +36,28 @@ class _BottomTabsState extends State<BottomTabs> {
               iconPath: CustomIcons.factory_icon,
               selected: _selectedTab == 0 ? true : false,
               onPressed: () {
-                widget.tabPressed(0);
+                widget.tabPressed!(0);
               },
             ),
             BottomTabBtn(
               iconPath: Icons.timer,
               selected: _selectedTab == 1 ? true : false,
               onPressed: () {
-                widget.tabPressed(1);
+                widget.tabPressed!(1);
               },
             ),
             BottomTabBtn(
               iconPath: Icons.shopping_cart,
               selected: _selectedTab == 2 ? true : false,
               onPressed: () {
-                widget.tabPressed(2);
+                widget.tabPressed!(2);
               },
             ),
             BottomTabBtn(
               iconPath: Icons.person_outline,
               selected: _selectedTab == 3 ? true : false,
               onPressed: () {
-                widget.tabPressed(3);
+                widget.tabPressed!(3);
               },
             ),
           ],
@@ -68,9 +68,9 @@ class _BottomTabsState extends State<BottomTabs> {
 }
 
 class BottomTabBtn extends StatelessWidget {
-  final IconData iconPath;
-  final bool selected;
-  final Function onPressed;
+  final IconData? iconPath;
+  final bool? selected;
+  final Function? onPressed;
   BottomTabBtn({this.iconPath, this.selected, this.onPressed});
 
   @override
@@ -78,7 +78,7 @@ class BottomTabBtn extends StatelessWidget {
     bool _selected = selected ?? false;
 
     return GestureDetector(
-      onTap: onPressed,
+      onTap: onPressed as void Function()?,
       child: Container(
         padding: EdgeInsets.symmetric(
           vertical: 15.0,
