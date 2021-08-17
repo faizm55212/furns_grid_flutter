@@ -20,7 +20,7 @@
 
 ## About The Project
 
-![Screen Shot](images/screenshot.png)
+<img src ="screenshots/home.png" width = "280" align = "right" >
 
 As for now, India has the highest growth rate of internet users, and has the internet user base of 627 million as of December 2019, about 50% of the total population. Still the penetration of E-commerce is pretty low if compared to countries like United States and France, but is growing, adding over 6 million new entrants every month.
 
@@ -36,7 +36,7 @@ This App is built with:
 * [Firebase](https://firebase.google.com/)
 
 ## Getting Started
-
+<img src ="screenshots/login.png" width = "280" align = "right" >
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
